@@ -135,19 +135,54 @@ It combines:
 - Reliance Industries Annual Report  
 
 ---
-## 🖼️ OCR Setup (PyTesseract)
-
-### 🔹Install Tesseract Engine
-
-#### Windows:
-- Download: https://github.com/UB-Mannheim/tesseract/wiki  
-- Install it  
-- Add path: C:\Program Files\Tesseract-OCR\tesseract.exe
 
 ## ⚙️ Installation
 
 ### 1️⃣ Clone Repository
 ```bash
-git clone https://github.com/your-username/annual-report-ai-assistant.git
-cd annual-report-ai-assistant
+git clone https://github.com/Siddharth172004/Annual-Report-AI-Assistant.git
+cd Annual-Report-AI-Assistant
+```
+### 2️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+### 3️⃣ OCR Setup
+```bash
+- Download: https://github.com/UB-Mannheim/tesseract/wiki  
+- Install it  
+- Add path: C:\Program Files\Tesseract-OCR\tesseract.exe
+```
+### 🔑 Environment Setup
+```bash
+GOOGLE_API_KEY=your_key
+```
+### ▶️ Run Project
+```bash
+python main.py
+```
 
+## ⚡ Key Highlight
+
+**Hybrid Retrieval System:**
+
+- 📄 Text-based embeddings  
+- 🖼️ OCR-based embeddings  
+
+➜ Ensures accurate results even for scanned PDFs  
+
+---
+
+## 📈 Future Improvements
+
+- Hybrid Search (BM25 + Vector)  
+- Better chunk optimization  
+- UI Dashboard (Streamlit / React)  
+- Multi-document comparison  
+- Faster retrieval  
+
+---
+
+## 👨‍💻 Devloped By-
+
+**Siddharth Dhole**
