@@ -108,4 +108,3 @@ def chatbot(user,session_id: str):
 # user = "what is the biggest achivements for Reliance (RIL) in 2024 to 2025?"
 # session_id = "candidate_1"
 # print(chatbot(user,session_id))
-
