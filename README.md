@@ -87,7 +87,8 @@ It combines:
 
 ### 1️⃣ Text Embedding Pipeline
 - Extract text from PDF  
-- Split into chunks  
+- Split into chunks
+- Convert into Documents
 - Generate embeddings using Sentence Transformers  
 - Store in vector database (FAISS)  
 
@@ -104,13 +105,49 @@ It combines:
 
 ---
 
+## 🧠 Retrieval (RAG)
+
+- User query → embedding  
+- Top-K relevant chunks retrieved  
+- Context passed to LLM  
+- Final answer generated  
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology              | Usage                     |
+|------------------------|--------------------------|
+| Python                 | Core development         |
+| LangChain              | RAG pipeline             |
+| Sentence Transformers  | Embeddings               |
+| FAISS                  | Vector Database          |
+| PyTesseract            | OCR                      |
+| pdf2image              | PDF → Image              |
+| Gemini / OpenAI        | LLM                      |
+
+---
+
+## 📊 Dataset
+
+- HDFC Bank Annual Report  
+- ICICI Bank Annual Report  
+- Reliance Industries Annual Report  
+
+---
 ## 🖼️ OCR Setup (PyTesseract)
 
-### 🔹 Step 1: Install Tesseract Engine
+### 🔹Install Tesseract Engine
 
 #### Windows:
 - Download: https://github.com/UB-Mannheim/tesseract/wiki  
 - Install it  
-- Add path:
+- Add path: C:\Program Files\Tesseract-OCR\tesseract.exe
 
+## ⚙️ Installation
+
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/your-username/annual-report-ai-assistant.git
+cd annual-report-ai-assistant
 
