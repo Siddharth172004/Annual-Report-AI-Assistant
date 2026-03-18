@@ -70,5 +70,47 @@ It combines:
 ⚡ Hybrid RAG: Combines Text + OCR embeddings for better accuracy on real-world PDFs.
 
 ```
+---
+
+## 🔥 Core Features
+
+- ✔ Handles scanned & non-scanned PDFs  
+- ✔ Dual pipeline (Text + OCR) for maximum accuracy  
+- ✔ Works on large-scale documents (1000+ pages)  
+- ✔ Semantic search using embeddings  
+- ✔ Context-aware AI responses  
+- ✔ Real-world financial data understanding  
+
+---
+
+## 🧠 System Design
+
+### 1️⃣ Text Embedding Pipeline
+- Extract text from PDF  
+- Split into chunks  
+- Generate embeddings using Sentence Transformers  
+- Store in vector database (FAISS)  
+
+---
+
+### 2️⃣ OCR Pipeline (Important)
+
+- Convert PDF pages → images  
+- Apply Tesseract OCR (PyTesseract)  
+- Extract hidden / scanned text  
+- Clean extracted text  
+- Chunk + generate embeddings  
+- Store in vector DB  
+
+---
+
+## 🖼️ OCR Setup (PyTesseract)
+
+### 🔹 Step 1: Install Tesseract Engine
+
+#### Windows:
+- Download: https://github.com/UB-Mannheim/tesseract/wiki  
+- Install it  
+- Add path:
 
 
