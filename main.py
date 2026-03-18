@@ -28,15 +28,9 @@ model = ChatGoogleGenerativeAI(
 # print(result.content)
 Embedding = HuggingFaceEmbeddings(model_name = "sentence-transformers/all-MiniLM-L6-v2")
 
-text_embed = FAISS.load_local("Vectordb/text_index",Embedding, allow_dangerous_deserialization= True)
-imgage_embed = FAISS.load_local("Vectordb/image_index",Embedding, allow_dangerous_deserialization= True)
+embed = FAISS.load_local("Vectordb",Embedding, allow_dangerous_deserialization= True)
 
-text_retriever = text_embed.as_retriever(
-    search_type= "mmr",
-    search_kwargs= {"k" : 3} 
-)
-
-image_retriever = imgage_embed.as_retriever(
+retriever = embed.as_retriever(
     search_type= "mmr",
     search_kwargs= {"k" : 6,
                     "fetch_k" : 25} 
@@ -89,11 +83,8 @@ final_prompt = ChatPromptTemplate.from_messages([
 
 def chatbot(user,session_id: str):
 
-    text_db = text_retriever.invoke(user)
-    image_db = image_retriever.invoke(user)
+    docs = retriever.invoke(user)
 
-    docs = text_db + image_db
-    
     context = "\n\n".join([db.page_content for db in docs])
     chain = final_prompt | model | parser
 
@@ -114,9 +105,7 @@ def chatbot(user,session_id: str):
     except Exception:
         return "Something went wrong please try again later :("
 
-# user = "what are the Governance Structure for Information Technology in icici:"
+# user = "what is the biggest achivements for Reliance (RIL) in 2024 to 2025?"
 # session_id = "candidate_1"
 # print(chatbot(user,session_id))
-
-
 
