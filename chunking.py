@@ -28,15 +28,15 @@ text_docs = []
 for i,text_page in enumerate(documents):
     chunks = text_splitter.split_text(text_page)
     for chunk in chunks:
-        d = Document(page_content= chunk,metadata={"page" : i,"source" : "text"})
-        text_docs.append(d)
+        tdb = Document(page_content= chunk,metadata={"page" : i,"source" : "text"})
+        text_docs.append(tdb)
 
 #Implement OCR (Extract text from images)
 ocr_texts = []
 
 for page_num in range(len(doc)):
     page = doc.load_page(page_num)
-    pix = page.get_pixmap(dpi=300)
+    pix = page.get_pixmap(dpi=150)
     img = Image.frombytes("RGB",[pix.width, pix.height],pix.samples)
     text = pytesseract.image_to_string(img)
 
@@ -47,8 +47,8 @@ image_docs = []
 for i,image_page in enumerate(ocr_texts):
     chunks = text_splitter.split_text(image_page)
     for chunk in chunks:
-        i = Document(page_content=chunk ,metadata= {"page":i,"source":"image"}) 
-        image_docs.append(i)
+        idb = Document(page_content=chunk ,metadata= {"page":i,"source":"image"}) 
+        image_docs.append(idb)
 
 #Genrate Embedding
 model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
