@@ -123,8 +123,7 @@ It combines:
 | Sentence Transformers  | Embeddings               |
 | FAISS                  | Vector Database          |
 | PyTesseract            | OCR                      |
-| pdf2image              | PDF → Image              |
-| Gemini / OpenAI        | LLM                      |
+| Gemini                 | LLM                      |
 
 ---
 
